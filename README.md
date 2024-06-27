@@ -1,19 +1,19 @@
 ## Goal
-This project is meant to illustrate the use of python using machine leaening.
+This project is meant to illustrate the use of python using machine learning. 
 
 
-## Installation running in command line or via IDE - Intellij
-1. Create a virtual environment - VM with the command from the source, src, directory.
-
-```bash
-  python3 -m venv venv venv
-```  
+## Installation environment and running in command line.
+1. Create a virtual environment. In the src directory, machine-learning/src type:
+   ```bash
+      python3 -m venv venv venv
+   ```  
 
 2. Active the VM.
-```bash
-source venv/bin/activate
-```  
-3. Installing the required packages and installing the kernel
+   ```bash
+      source venv/bin/activate
+   ```  
+
+3. Installing the required packages and kernel.
    1. upgrade pip
     ```bash
        pip install --upgrade pip
@@ -26,11 +26,11 @@ source venv/bin/activate
    ```bash
       source venv/bin/activate 
    ```
-   4. How check the installed libs by listing them
+   4. How check the installed libs by listing them. The below command will list the installed libraries.
    ```bash
       pip list
    ```
-   5. kernel installation on ipython
+   5. kernel installation with ipython
       ```bash
         ipython kernel install --user --name=my-env-3.10
       ```
@@ -49,16 +49,13 @@ source venv/bin/activate
    
 5. How run an example in the command line:
    1. Open the terminal
-   2. In the directory : /machine-learning-sample/src/main go to desired sub-directory. Below an example from the classification sub-directory.
-   ```bash
-      cd classification
-   ```
-   3. Run the below command : python3 <file-name>.py
+   2. Select the directory that contains the python file that you want to execute and run the below command : python3 <file-name>.py
+   Below on example:
    ````bash
       python3 decision-tree.py  
    ````
 
-6. How to run a Jupiter Notebook. One browser tab will open with the jupyter notebook running.
+6. How to run with Jupiter Notebook. When you start Jupyter one browser tab will open with the jupyter notebook server running.
    1. After complete the step 4 above type:
    ```bash
       jupyter notebook <notebook-file>.ipynb
@@ -75,5 +72,3 @@ source venv/bin/activate
 2. https://www.jetbrains.com/help/idea/editing-jupyter-notebook-files.html
 3. https://towardsdatascience.com/a-gentle-introduction-to-self-training-and-semi-supervised-learning-ceee73178b38
 
-## TODO
-1. Installation running with Jupiter notebook.
