@@ -1,1 +1,9 @@
 /src/venv/
+/machine-learning-example.iml
+/.idea/
+/src/main/classification/output/
+/src/main/semi-supervised-learning/.ipynb_checkpoints/
+/src/main/regression/.ipynb_checkpoints/
+/src/main/data-clean-up/.ipynb_checkpoints/
+/src/main/clustering/.ipynb_checkpoints/
+/src/main/classification/.ipynb_checkpoints/
