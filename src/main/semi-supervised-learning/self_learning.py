@@ -1,6 +1,9 @@
 """
 The source code and the article could be found
 here : https://towardsdatascience.com/a-gentle-introduction-to-self-training-and-semi-supervised-learning-ceee73178b38
+Note:
+    1. Some lines are intentionally commented because generate a verbose output.
+    2. The same example could be run at Jupyter notebook using the self-learning.ioynb file.
 """
 
 import pandas as pd
@@ -18,11 +21,11 @@ __member = 'Surgical-deepnet.csv'
 def load_dataset():
     # Load data
     with ZipFile(__path, 'r') as zip_file:
-       file = zip_file.extract(__member)
-    df = pd.read_csv(file)
+        surgical_deenet_file = zip_file.extract(__member)
+    df = pd.read_csv(surgical_deenet_file)
     # Get more informantions about the dataset.
-    #df.info()
-    os.remove(file)
+    # df.info()
+    os.remove(surgical_deenet_file)
     return df
 
 
@@ -31,9 +34,9 @@ def preparing_dataset(df):
     df = df.sample(frac=1, random_state=15).reset_index(drop=True)
 
     # Generate indices for splits
-    test_ind = round(len(df)*0.25)
-    train_ind = test_ind + round(len(df)*0.01)
-    unlabeled_ind = train_ind + round(len(df)*0.74)
+    test_ind = round(len(df) * 0.25)
+    train_ind = test_ind + round(len(df) * 0.01)
+    unlabeled_ind = train_ind + round(len(df) * 0.74)
 
     # Partition the data
     test = df.iloc[:test_ind]
@@ -58,7 +61,7 @@ def preparing_dataset(df):
 
     # Visualize class distribution
     y_train.value_counts().plot(kind='bar')
-    plt.xticks([0,1], ['No Complication', 'Complication'])
+    plt.xticks([0, 1], ['No Complication', 'Complication'])
     plt.ylabel('Count')
     return X_train, y_train, X_test, y_test, X_unlabeled
 
@@ -76,7 +79,8 @@ def train_labeled_data(X_train, y_train, X_test, y_test):
     print(f"Train f1 Score: {train_f1}")
     print(f"Test f1 Score: {test_f1}")
 
-    disp = ConfusionMatrixDisplay.from_estimator(clf, X_test, y_test, cmap=plt.cm.Blues, normalize='true', display_labels=['No Comp.', 'Complication']);
+    disp = ConfusionMatrixDisplay.from_estimator(clf, X_test, y_test, cmap=plt.cm.Blues, normalize='true',
+                                                 display_labels=['No Comp.', 'Complication']);
     print("Confusion matrix")
     print(disp.confusion_matrix)
     # Generate probabilities for each prediction
@@ -107,19 +111,19 @@ def generate_pseudo_label(clf, X_train, y_train, X_test, y_test, X_unlabeled):
         # Calculate and print iteration # and f1 scores, and store f1 scores
         train_f1 = f1_score(y_train, y_hat_train)
         test_f1 = f1_score(y_test, y_hat_test)
-        #print(f"Iteration {iterations}")
-        #print(f"Train f1: {train_f1}")
-        #print(f"Test f1: {test_f1}")
+        # print(f"Iteration {iterations}")
+        # print(f"Train f1: {train_f1}")
+        # print(f"Test f1: {test_f1}")
         train_f1s.append(train_f1)
         test_f1s.append(test_f1)
 
         # Generate predictions and probabilities for unlabeled data
-        #print(f"Now predicting labels for unlabeled data...")
+        # print(f"Now predicting labels for unlabeled data...")
 
         pred_probs = clf.predict_proba(X_unlabeled)
         preds = clf.predict(X_unlabeled)
-        prob_0 = pred_probs[:,0]
-        prob_1 = pred_probs[:,1]
+        prob_0 = pred_probs[:, 0]
+        prob_1 = pred_probs[:, 1]
 
         # Store predictions and probabilities in dataframe
         df_pred_prob = pd.DataFrame([])
@@ -132,7 +136,7 @@ def generate_pseudo_label(clf, X_train, y_train, X_test, y_test, X_unlabeled):
         high_prob = pd.concat([df_pred_prob.loc[df_pred_prob['prob_0'] > 0.99],
                                df_pred_prob.loc[df_pred_prob['prob_1'] > 0.99]],
                               axis=0)
-        #print(f"{len(high_prob)} high-probability predictions added to training data.")
+        # print(f"{len(high_prob)} high-probability predictions added to training data.")
         pseudo_labels.append(len(high_prob))
 
         # Add pseudo-labeled data to training data
@@ -141,12 +145,12 @@ def generate_pseudo_label(clf, X_train, y_train, X_test, y_test, X_unlabeled):
 
         # Drop pseudo-labeled instances from unlabeled data
         X_unlabeled = X_unlabeled.drop(index=high_prob.index)
-        #print(f"{len(X_unlabeled)} unlabeled instances remaining.\n")
+        # print(f"{len(X_unlabeled)} unlabeled instances remaining.\n")
 
         # Update iteration counter
         iterations += 1
     # Plot f1 scores and number of pseudo-labels added for all iterations
-    fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, figsize=(6,8))
+    fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, figsize=(6, 8))
     ax1.plot(range(iterations), test_f1s)
     ax1.set_ylabel('f1 Score')
     ax2.bar(x=range(iterations), height=pseudo_labels)
@@ -155,7 +159,7 @@ def generate_pseudo_label(clf, X_train, y_train, X_test, y_test, X_unlabeled):
     return clf, X_test, y_test
 
 
-def plot_confusion_matrix(clf,X_test, y_test):
+def plot_confusion_matrix(clf, X_test, y_test):
     # View confusion matrix after self-training
     disp = ConfusionMatrixDisplay.from_estimator(clf, X_test, y_test, cmap=plt.cm.Blues, normalize='true',
                                                  display_labels=['No Comp.', 'Complication']);

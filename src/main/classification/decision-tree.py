@@ -41,12 +41,14 @@ def execute_decision_tree_wine_ds():
         os.mkdir(output_path)
     output_file = os.path.join(output_path,  "plot.png" )
 
+    # Splitting the dataset into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) # Splitting the dataset into training and testing sets
+    # Initialize the decision tree classifier
+    clf = DecisionTreeClassifier()
 
-    clf = DecisionTreeClassifier() # Initialize the decision tree classifier
-
-    clf.fit(X_train, y_train) # Fitting the classifier on the training data
+    # Fitting the classifier on the training data
+    clf.fit(X_train, y_train)
 
     # Plot the decision tree
     plt.figure(figsize=(15, 10))
