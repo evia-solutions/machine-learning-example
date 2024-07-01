@@ -6,22 +6,23 @@ Note:
     2. The same example could be run at Jupyter notebook using the self-learning.ioynb file.
 """
 
-import pandas as pd
-import matplotlib.pyplot as plt
-from zipfile import ZipFile
-from sklearn.linear_model import LogisticRegression
 import os
-from sklearn.metrics import f1_score
-from sklearn.metrics import ConfusionMatrixDisplay
+from zipfile import ZipFile
 
-__path = '../../resources/data/Surgical-deepnet.zip'
-__member = 'Surgical-deepnet.csv'
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import ConfusionMatrixDisplay
+from sklearn.metrics import f1_score
+
+__PATH__ = '../../resources/data/Surgical-deepnet.zip'
+__DATASET_FILE_NAME__ = 'Surgical-deepnet.csv'
 
 
 def load_dataset():
     # Load data
-    with ZipFile(__path, 'r') as zip_file:
-        surgical_deenet_file = zip_file.extract(__member)
+    with ZipFile(__PATH__, 'r') as zip_file:
+        surgical_deenet_file = zip_file.extract(__DATASET_FILE_NAME__)
     df = pd.read_csv(surgical_deenet_file)
     # Get more informantions about the dataset.
     # df.info()
