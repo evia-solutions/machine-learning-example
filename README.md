@@ -25,35 +25,36 @@ This project illustrates some machine learning concepts and uses python as progr
 ## Installation: Environment and how run the examples.
 1. Create a virtual environment for python. In the src directory, machine-learning/src type:
    ```bash
-      python3 -m venv venv venv
+   python3 -m venv venv venv
    ```  
 
 2. Activating the python virtual environment.
    ```bash
-      source venv/bin/activate
+   source venv/bin/activate
    ```  
 
 3. Installing the required packages and kernel into the virtual environment.
    1. upgrading pip.
     ```bash
-       pip install --upgrade pip
+    pip install --upgrade pip
     ```   
-   2.installing dependencies from requirements.txt file
+   2.From the src folder, install the dependencies from requirements.txt file.
    ```bash
-       pip install -r requirements.txt
+   cd ./src
+   pip install -r requirements.txt
    ```
    3. Checking the installed libs by listing them. Run the below command to list the installed libraries on the terminal.
    ```bash
-      pip list
+   pip list
    ```
    4. kernel installation with ipython
-      ```bash
-        ipython kernel install --user --name=my-env-3.10
-      ```
+   ```bash
+   ipython kernel install --user --name=my-env-3.10
+   ```
    5. ipykernel installation with python.
-      ```bash
-        python -m ipykernel install --user --name=my-env-3.10
-      ```
+   ```bash
+   python -m ipykernel install --user --name=my-env-3.10
+   ```
     
 4. If you want to run via IDE, Intellij, you must follow the steps below:
    1. Go to File > Project structure
@@ -68,17 +69,17 @@ This project illustrates some machine learning concepts and uses python as progr
    2. Select the directory that contains the python file that you want to execute and run the below command : python3 <file-name>.py
    Below on example:
    ````bash
-      python3 decision-tree.py  
+   python3 decision-tree.py  
    ````
 
 6. How do I run with Jupiter Notebook ? 
    1. After complete the step 4 above type:
    ```bash
-      jupyter notebook <notebook-file>.ipynb
+   jupyter notebook <notebook-file>.ipynb
    ```
    2. Another option is run the below command and navigate to the desired file(extension ipynb).
    ```bash
-      jupyter notebook
+   jupyter notebook
    ```
    3. To stop the server just interrupt the service typing "ctrl" + c in the terminal where the service is running.
    
@@ -89,4 +90,3 @@ This project illustrates some machine learning concepts and uses python as progr
 2. https://www.geeksforgeeks.org/ml-linear-regression/
 3. https://www.jetbrains.com/help/idea/editing-jupyter-notebook-files.html
 4. https://towardsdatascience.com/a-gentle-introduction-to-self-training-and-semi-supervised-learning-ceee73178b38
-
