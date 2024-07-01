@@ -5,17 +5,17 @@ This project illustrates some machine learning concepts and uses python as progr
    3. numpy
    4. Matplot
 
-Covered topics:
-   1. Regression problems : linear regression algorithm
-   2. Classification problems : logistic regression, random-forest and decision tree.
-   3. Clustering problems from unsupervised learning : k-means clustering
-   4. Semi-supervised learning : self learning.
+## Covered topics:
+   1. Regression problems : linear regression algorithm.
+   2. Classification problems : logistic regression, random-forest and decision tree algorithms.
+   3. Clustering problems from unsupervised learning : k-means clustering algorithm.
+   4. Semi-supervised learning : Self-learning algorithm. 
    5. Data clean-up
-      1. outlier identification
+      1. Outlier identification
       2. Skew data
-      3. downsampling and upweighting strategies
+      3. Downsampling and Upweighting strategies
 
-It's possible to run the examples via :
+## It's possible to run the examples via :
    1. command-line. 
    2. Jupyter notebook. 
    3. IDE(in this case Intellij).
