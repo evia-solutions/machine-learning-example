@@ -95,7 +95,7 @@ class LinearRegression:
             print("Iteration = {}, Loss = {}".format(frame + 1, cost))
 
             return line,
-            # Create animation
+        # Create animation
         ani = FuncAnimation(fig, update, frames=iters, interval=200, blit=True)
 
         # Save the animation as a video file (e.g., MP4)

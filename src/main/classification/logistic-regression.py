@@ -2,9 +2,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import cross_val_score
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.metrics import accuracy_score, recall_score, precision_score, confusion_matrix, f1_score
-import numpy as np
 
 
 def execute_logistic_regression():
