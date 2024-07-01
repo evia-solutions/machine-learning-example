@@ -1,16 +1,13 @@
 """
 Source code from https://www.geeksforgeeks.org/ml-linear-regression/
 """
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.axes as ax
+import numpy as np
+import pandas as pd
 from matplotlib.animation import FuncAnimation
-
 
 url = '../../resources/data/data_for_lr.csv'
 data = pd.read_csv(url)
-data
 
 # Drop the missing values
 data = data.dropna()
