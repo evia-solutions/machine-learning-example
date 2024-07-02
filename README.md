@@ -83,7 +83,9 @@ This project illustrates some machine learning concepts and uses python as progr
    ```
    3. To stop the server just interrupt the service typing "ctrl" + c in the terminal where the service is running.
    
-**Note: When you start Jupyter one browser tab will open with the jupyter notebook server running.**
+**Notes:** 
+1. When you start Jupyter one browser tab will open with the jupyter notebook server running.
+2. To run Jupyter notebook inside Intellij you should install a plugin, here the instructions : https://www.jetbrains.com.cn/en-us/help/idea/jupyter-notebook-support.html#tool-windows 
 
 ## References
 1. https://scikit-learn.org/stable/
