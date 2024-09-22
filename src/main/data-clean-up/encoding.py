@@ -1,3 +1,6 @@
+"""
+This code is based on this article: https://towardsdatascience.com/encoding-categorical-data-explained-a-visual-guide-with-code-example-for-beginners-b169ac4193ae
+"""
 import pandas as pd
 import numpy as np
 
