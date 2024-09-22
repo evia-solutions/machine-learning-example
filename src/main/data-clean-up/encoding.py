@@ -89,11 +89,9 @@ def create_ordinal_encoding(data_frame, source_column_name, new_column_name):
 def create_cyclic_encoding(data_frame, source_column_name, source_column_as_num_name, new_column_sin_name, new_column_cos_name):
     """Cyclic encoded is used for categorical values that has a clear cycle order, and this cycle should be preserved. To preserve the
     cycle nature is applied cosine and sine transformations. Examples of this kind of categorical values are:
-    1. day
-    2. weeks
-    3. months
-    4. years
-    5. Hours
+    1. days of week
+    2. months of year
+    3. hours of day
 
     It is particularly useful when the 'distance' between categories matters and wraps around."""
     month_order = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
